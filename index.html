@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111" />
+  <meta name="description" content="Airgap Web Proxy — transfer data between devices via QR codes" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <title>Airgap Proxy</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="header-row">
+        <div>
+          <h1 data-i18n>Airgap Proxy</h1>
+          <p class="sub" data-i18n>Transfer data between air-gapped devices via QR codes</p>
+        </div>
+        <select id="lang-switcher" class="lang-switcher" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+        </select>
+      </div>
+    </header>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="crypt" data-i18n>Crypt</button>
+      <button class="tab" data-tab="keys" data-i18n>Key Bundles</button>
+    </nav>
+
+    <main>
+      <!-- Crypt Tab -->
+      <section id="tab-crypt" class="tab-content">
+        <section class="card">
+          <h2 data-i18n>Scan</h2>
+          <p data-i18n>Scan a QR sequence from another device.</p>
+          <button class="btn btn-primary" id="btn-scan" data-i18n>Scan Data</button>
+          <div id="scan-result" class="result-box hidden">
+            <label data-i18n>Base64 Encoded Data</label>
+            <textarea id="scan-output" readonly></textarea>
+            <button class="btn" id="btn-copy" data-i18n>Copy to Clipboard</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 data-i18n>Play</h2>
+          <p data-i18n>Paste base64 data to encode into a QR sequence.</p>
+          <textarea id="play-input" data-i18n="Paste base64 data here…" data-i18n-attr="placeholder"></textarea>
+          <button class="btn btn-primary" id="btn-play" data-i18n>Play QRs</button>
+        </section>
+      </section>
+
+      <!-- Key Bundles Tab -->
+      <section id="tab-keys" class="tab-content hidden">
+        <div id="bundles-list" class="bundles">
+          <p class="empty-msg" data-i18n>No key bundles saved yet. Tap + to scan one.</p>
+        </div>
+        <button class="btn btn-primary add-btn" id="btn-add-bundle" data-i18n>+ Scan Key Bundle</button>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

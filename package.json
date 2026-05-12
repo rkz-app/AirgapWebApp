@@ -1,0 +1,32 @@
+{
+  "name": "airgapwebapp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkz-app/AirgapWebApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkz-app/AirgapWebApp/issues"
+  },
+  "homepage": "https://github.com/rkz-app/AirgapWebApp#readme",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "airgap-web": "https://github.com/rkz-app/airgap-web/releases/download/v0.0.3/airgap-web-0.0.1.tgz",
+    "js-sha3": "^0.9.3"
+  },
+  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
+}

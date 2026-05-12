@@ -1,0 +1,352 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f0f11;
+  --surface: #1c1c1e;
+  --surface2: #28282b;
+  --text: #f5f5f7;
+  --text2: #98989d;
+  --accent: #0a84ff;
+  --accent-hover: #409cff;
+  --red: #ff453a;
+  --green: #30d158;
+  --purple: #bf5af2;
+  --radius: 12px;
+  --border: #38383a;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  line-height: 1.5;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+header {
+  text-align: center;
+}
+
+.header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.lang-switcher {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  flex-shrink: 0;
+}
+
+.lang-switcher:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.sub {
+  color: var(--text2);
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3px;
+  gap: 3px;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text2);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab.active {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* ── Tab content ──────────────────────────────────────────────────────────── */
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: var(--text2);
+  font-size: 0.875rem;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover { background: #3a3a3c; }
+.btn:active { background: #48484a; }
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:active { background: #69b1ff; }
+
+/* ── Textarea ─────────────────────────────────────────────────────────────── */
+textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  color: var(--text);
+  font-family: 'SF Mono', ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ── Result box ───────────────────────────────────────────────────────────── */
+.result-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-box label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.result-box textarea {
+  min-height: 60px;
+}
+
+/* ── Toast ────────────────────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+
+.toast.hidden { opacity: 0; pointer-events: none; }
+
+/* ── Key Bundles ──────────────────────────────────────────────────────────── */
+.bundles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--text2);
+  font-size: 0.875rem;
+  padding: 32px 0;
+}
+
+.bundle-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bundle-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bundle-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bundle-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bundle-size {
+  font-size: 0.8125rem;
+  color: var(--text2);
+}
+
+.bundle-hash {
+  font-family: 'SF Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--text2);
+}
+
+/* ── Key items (matching Swift UI) ────────────────────────────────────────── */
+.key-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface2);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.key-icon {
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.key-icon.mlkem { background: rgba(10,132,255,0.15); }
+.key-icon.p256  { background: rgba(48,209,88,0.15); }
+.key-icon.mldsa { background: rgba(191,90,242,0.15); }
+
+.key-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.key-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.key-hash {
+  font-family: 'SF Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--text2);
+}
+
+.key-size {
+  font-size: 0.75rem;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+
+/* ── Bundle actions ───────────────────────────────────────────────────────── */
+.bundle-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.bundle-actions .btn {
+  flex: 1;
+  font-size: 0.8125rem;
+  padding: 8px 12px;
+}
+
+.bundle-delete {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.bundle-delete:hover { background: rgba(255,69,58,0.15); }
+
+/* ── Add bundle button ────────────────────────────────────────────────────── */
+.add-btn {
+  width: 100%;
+}
+
+/* ── Utility ──────────────────────────────────────────────────────────────── */
+.hidden { display: none; }

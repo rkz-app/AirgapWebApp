@@ -1,0 +1,10 @@
+{
+  "name": "Airgap Proxy",
+  "short_name": "Airgap",
+  "description": "Transfer data between air-gapped devices via QR codes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f11",
+  "theme_color": "#111",
+  "icons": []
+}
